@@ -13,17 +13,16 @@
 
     </select>
     ametikohal
-    <input type="number" pleceholder="töötatud tundide arv">
+    <input type="number" id="tunnid">
     tundi
-    <button id="sisesta">Sisesta</button>
+    <button id="amps">Sisesta</button>
     <br>
     <div>
-        <input type=radio id="päevatöö" value="päevatöö" name="tyyp">
-        <label for="päevatöö">Päevane vahetus</label>
-        <input type="radio" id="öötöö" value="öötöö" name="tyyp">
+        <input type="checkbox" id="öötöö" name="öötöö" onclick="multiplier()">
         <label for="öötöö">Öine vahetus</label>
     </div>
-
+    <span id="answer">0</span> €
+    
     <script src="app.js"></script>
 </body>
 </html>
