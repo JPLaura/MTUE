@@ -32,8 +32,9 @@ request.onerror = function() {
 };
 
 request.send();
-
-const amet = document.querySelector("#ametid");
+var sel = document.getElementById("ametid");
+var text= sel.options[sel.selectedIndex].text;
+var amet = document.querySelector("#ametid");
 const tunnid = document.querySelector("#tunnid");
 const btnamps =document.querySelector("#amps");
 const answer =document.querySelector("#answer");
@@ -49,7 +50,7 @@ function amps() {
     answer.innerText=balance_val;
     let newRow=document.createElement("div");
     newRow.classList.add("print-in");
-    newRow.innerHTML =amet.value+ ampsuraha.value;
+    newRow.innerHTML =ampsuraha +"" + document.getElementById('ametid').selectedOptions[0].text;
     document.querySelector(".print-boxs").appendChild(newRow);}
     else {
       ampsuraha=amet.value*parseInt(tunnid.value);
@@ -57,7 +58,7 @@ function amps() {
       answer.innerText=balance_val;
       let newRow=document.createElement("div");
       newRow.classList.add("print-in");
-      newRow.innerHTML =amet.value + ampsuraha.value;
+      newRow.innerHTML =ampsuraha +"" + document.getElementById('ametid').selectedOptions[0].text;
       document.querySelector(".print-boxs").appendChild(newRow);
 
     }
