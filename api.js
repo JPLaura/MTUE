@@ -5,6 +5,7 @@ const totalSumBox = document.getElementById("answer");
 const numberField = document.getElementById("tunnid");
 const openAddModal = document.getElementById("addNewButton");
 const addNewModal = document.getElementById("addNewModal");
+let totalSum = 0;
 
 let occupations = {
 	96: { name: "Prügimees", rate: 0},
@@ -40,21 +41,25 @@ fetch('http://andmebaas.stat.ee/sdmx-json/data/PA627/7+10+18+19+22+28+30+31+35+3
 .then(data => {
 	data.structure.dimensions.observation[0].values.forEach((el, i) => {
 		objectKey = el.name.split(' ')[0]
+		console.log(objectKey);
 		key = i + ":0:0:0"
 		rate = data.dataSets[0].observations[key][0]
+		console.log(rate)
 		occupations[objectKey].rate = rate;
 	})
 
-	addButton.addEventListener('click', addRow())
-		function addRow() {
+	function addRow() {
 			sum = occupations[objectKey].rate * numberField.value;
-			console.log(occupations[objectKey].rate);
-			console.log(numberField.value);
-			console.log(sum)
-			totalSum = 0;
 			totalSum += sum;
-			document.getElementById("answer").innerHTML = totalSum.toFixed(1);
+			totalSumBox.innerText = totalSum.toFixed(1);
+			// console.log(occupations[objectKey].rate);
+			// console.log(numberField.value);
+			// console.log(sum)
+			// document.getElementById("answer").innerHTML = totalSum.toFixed(1);
 		};
+
+	addButton.addEventListener('click', addRow)
+
 
 		
 
