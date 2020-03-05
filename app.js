@@ -35,16 +35,32 @@ request.send();
 
 const amet = document.querySelector("#ametid");
 const tunnid = document.querySelector("#tunnid");
-const btnamps =document.querySelector("#amps")
-const answer =document.querySelector("#answer")
+const btnamps =document.querySelector("#amps");
+const answer =document.querySelector("#answer");
+const balance = document.querySelector("balance");
+let balance_val=0;
+var checkBox = document.getElementById("öötöö");
+
 
 function amps() {
-    ampsuraha=amet.value*parseInt(tunnid.value)
-    answer.innerText=ampsuraha
-    let newRow=document.createElement("div")
+  if (checkBox.checked ==true){
+    ampsuraha=amet.value*parseInt(tunnid.value)*1.5;
+    balance_val+=ampsuraha;
+    answer.innerText=balance_val;
+    let newRow=document.createElement("div");
     newRow.classList.add("print-in");
-    newRow.innerHTML =ampsuraha.value;
-    document.querySelector(".print-boxs").appendChild(newRow);
+    newRow.innerHTML =amet.value+ ampsuraha.value;
+    document.querySelector(".print-boxs").appendChild(newRow);}
+    else {
+      ampsuraha=amet.value*parseInt(tunnid.value);
+      balance_val+=ampsuraha;
+      answer.innerText=balance_val;
+      let newRow=document.createElement("div");
+      newRow.classList.add("print-in");
+      newRow.innerHTML =amet.value + ampsuraha.value;
+      document.querySelector(".print-boxs").appendChild(newRow);
+
+    }
 }
 // function multiplier(){
 //     var checkBox = document.getElementById("öötöö");
