@@ -29,7 +29,7 @@
     <!-- BODY START -->
     <div class="w-full px-4">
         <div class="flex w-full justify-center align-middle">
-            <span id="answer" class="inline-block px-2 py-4 font-sans text-black text-2xl text-purple-600">300.56</span>
+            <span id="answer" class="inline-block px-2 py-4 font-sans text-black text-2xl text-purple-600"></span>
             <span class="text-gray-400 py-4 text-2xl">€</span>
         </div>
         
@@ -37,9 +37,11 @@
     </div>
     <!-- BODY END -->
     <!-- MODUL START - jääb alati kõige alumiseks mobiilis ja läheb vasakule äärde 100vh, kui desktop -->
-    <section id="addNewModal" class="block absolute bottom-0 w-full z-20 pb-4 bg-white border-t-2 border-purple-600 ">
+    <section id="addNewModal" class="absolute hidden bottom-0 w-full z-20 pb-4 bg-white border-t-2 border-purple-600">
         <div class="px-4">
-            <select class="block my-4 appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="ametid" type="text"></select>
+            <select class="block my-4 appearance-none w-full bg-gray-200 border border-gray-200 text-gray-600 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="ametid" type="text">
+                <option class="font-sans" selected="selected">Vali omale amet</option>
+            </select>
 
             <input class="block my-4 appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="number" id="tunnid" placeholder="Sisestage tunnid">
 
@@ -53,7 +55,7 @@
     <!-- MODUL END -->
     <!-- BUTTON  START - fixed bottom mobile & fixed bottom of sidebar on desktop -->
     <div class="fixed bottom-0 h-20 w-full bg-white shadow-inner px-4 py-4 z-10">
-        <button id="addNewButton" class="text-center bg-purple-600 w-full h-full rounded-lg text-white uppercase tracking-wider hover:bg-purple-500" type="button">Lisa kirje</button>
+        <button id="addNewButton" class="text-center bg-purple-600 w-full h-full rounded-lg text-white uppercase tracking-wider hover:bg-purple-500" type="button" onclick="openPanel()">Lisa kirje</button>
     </div>
     <!-- BUTTON END -->
     <!-- <script src="app.js"></script> -->

@@ -1,3 +1,13 @@
+const select = document.getElementById("ametid");
+const addButton = document.getElementById("amps");
+const checkboxInput = document.getElementById("öötöö");
+const totalSumBox = document.getElementById("answer");
+const numberField = document.getElementById("tunnid");
+const openAddModal = document.getElementById("addNewButton");
+const addNewModal = document.getElementById("addNewModal");
+
+let totalSum = 0;
+
 let occupations = {
 	96: { name: "Prügimees", rate: 0},
 	94: { name: "Kelner", rate: 0},
@@ -14,10 +24,15 @@ let occupations = {
 	42: { name: "Klienditeenindaja", rate: 0}
 }
 
-// select - loopi options peale
+// Loopime läbi "occupations" ja anname väärtused edasi <option> tagidele DOMis
 for(let key in occupations) {
-	array[key].name
+	select.options[select.options.length] = new Option(occupations[key].name, occupations);
 }
+
+// Ava sisetuse moodul "Lisa kirja" nupu vajutamisel
+function openPanel() {
+	document.getElementById("addNewModal").style.display ="block";
+};
 
 fetch('http://andmebaas.stat.ee/sdmx-json/data/PA627/7+10+18+19+22+28+30+31+35+36+37+39+41.3.1/all?startTime=2014&endTime=2014&dimensionAtObservation=allDimensions')
 .then(response=>{
@@ -28,10 +43,20 @@ fetch('http://andmebaas.stat.ee/sdmx-json/data/PA627/7+10+18+19+22+28+30+31+35+3
 	data.structure.dimensions.observation[0].values.forEach((el, i) => {
 		objectKey = el.name.split(' ')[0]
 		key = i + ":0:0:0"
-		console.log(key)
 		rate = data.dataSets[0].observations[key][0]
 		occupations[objectKey].rate = rate;
 	})
+
+	addButton.addEventListener('click', addRow())
+		function addRow() {
+			konf = checkboxInput.value ? 1.5 : 1;
+			addToSum = (rate * numberField) * konf;
+			console.log(addToSum);
+			totalSumBox.innerHTML = totalSum + addToSum;
+		};
+
+		
+
 	// nupp addEventListener('click', addRow)
 	// - konf (if lause) - inout.value ? 1.5 või 1
 	// - options valuele vastav rate * input value * konf
