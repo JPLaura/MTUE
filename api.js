@@ -6,6 +6,7 @@ const numberField = document.getElementById("tunnid");
 const openAddModal = document.getElementById("addNewButton");
 const addNewModal = document.getElementById("addNewModal");
 let totalSum = 0;
+console.log(totalSum)
 
 let occupations = {
 	96: { name: "Prügimees", rate: 0},
@@ -41,15 +42,14 @@ fetch('http://andmebaas.stat.ee/sdmx-json/data/PA627/7+10+18+19+22+28+30+31+35+3
 .then(data => {
 	data.structure.dimensions.observation[0].values.forEach((el, i) => {
 		objectKey = el.name.split(' ')[0]
-		console.log(objectKey);
 		key = i + ":0:0:0"
 		rate = data.dataSets[0].observations[key][0]
-		console.log(rate)
 		occupations[objectKey].rate = rate;
 	})
 
 	function addRow() {
 			sum = occupations[objectKey].rate * numberField.value;
+			console.log(sum)
 			totalSum += sum;
 			totalSumBox.innerText = totalSum.toFixed(1);
 			// console.log(occupations[objectKey].rate);
