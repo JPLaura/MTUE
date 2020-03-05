@@ -6,8 +6,6 @@ const numberField = document.getElementById("tunnid");
 const openAddModal = document.getElementById("addNewButton");
 const addNewModal = document.getElementById("addNewModal");
 
-let totalSum = 0;
-
 let occupations = {
 	96: { name: "Prügimees", rate: 0},
 	94: { name: "Kelner", rate: 0},
@@ -49,10 +47,13 @@ fetch('http://andmebaas.stat.ee/sdmx-json/data/PA627/7+10+18+19+22+28+30+31+35+3
 
 	addButton.addEventListener('click', addRow())
 		function addRow() {
-			konf = checkboxInput.value ? 1.5 : 1;
-			addToSum = (rate * numberField) * konf;
-			console.log(addToSum);
-			totalSumBox.innerHTML = totalSum + addToSum;
+			sum = occupations[objectKey].rate * numberField.value;
+			console.log(occupations[objectKey].rate);
+			console.log(numberField.value);
+			console.log(sum)
+			totalSum = 0;
+			totalSum += sum;
+			document.getElementById("answer").innerHTML = totalSum.toFixed(1);
 		};
 
 		
@@ -63,7 +64,7 @@ fetch('http://andmebaas.stat.ee/sdmx-json/data/PA627/7+10+18+19+22+28+30+31+35+3
 	// - genereeri uus rivi HTMLi (vastuserivi)
 	// - total =+ sum
 	// - muuda totalit HTMLis
-})
+});
 
 
 
