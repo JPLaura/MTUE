@@ -1,30 +1,28 @@
-## MTUE
-** MTÜ Emale Projektitöö **
+## MTÜ Emale Projektitöö
 
----------------------------
-
-** Figma link **
+**Figma link**
 
 Figma linki pole olemas, kuna kogu disain käis tahvli peal, ilmselt see on veel seal tagumises klassinurgas alles.
 
 ---------------------------
 
-** Github link **
+**Github link**
 
 [Laura Github](https://github.com/JPLaura/MTUE)
 
-* Backup *
+*Backup*
+
 [Geni Github](https://github.com/vikatgen/MTUE)
 
 ---------------------------
 
-** Live leht **
+**Live leht**
 
 [MTUE livesite](https://mtue.netlify.com/)
 
 ---------------------------
 
-** Projektis töötasid järgmised andekad inimesed (Järeldasin Githubi nimedest.) **
+**Projektis töötasid järgmised andekad inimesed (Järeldasin Githubi nimedest.)**
 
 * Kaspar Kivi
 * Uku Volke
